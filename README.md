@@ -4,10 +4,10 @@
 Code challenge designed to evaluate technical knowledge of **Backend** candidates.  
 
 ## Content
-- [The Challenge](#The Challenge)
-    - [Scenario](#Scenario)
-- [Submission Guidelines](#Submission Guidelines)
-- [Attention](#ATTENTION)
+- [The Challenge](#the-challenge)
+    - [Scenario](#scenario)
+- [Submission Guidelines](#submission-guidelines)
+- [Attention](#attention)
 
 ## The Challenge 
 
