@@ -1,9 +1,6 @@
 language: java
 
-jdk:
-  - oraclejdk13
-
-sudo: required
+jdk: oraclejdk11
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -19,8 +16,8 @@ jobs:
       name: Code Challenge Validation
       if: type = pull_request AND fork = true
       script:
-          - if [ -e build.gradle ]; then ./gradlew check ; fi
-          - if [ -e pom.xml ]; then mvn test -B ; fi
+        - if [ -e build.gradle ]; then ./gradlew check ; fi
+        - if [ -e pom.xml ]; then mvn test -B ; fi
       notifications:
         slack: vtrsalgado:J4NygsuDQPf4qkIxn2sCG7h3
           on_success: change
