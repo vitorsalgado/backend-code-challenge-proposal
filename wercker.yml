@@ -5,11 +5,12 @@ build:
   docker: true
   steps:
     - script:
-        name: install docker
-        code: apk --no-cache add docker
-    - script:
-        name: install curl
-        code: apk --no-cache add curl
+        name: setup
+        code: |
+          sudo apk --no-cache add docker
+          sudo apk --no-cache add curl
+          sudo mkdir /etc/apt/sources.list.d
+
     - script:
       name: support applications
       code: |
