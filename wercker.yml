@@ -1,7 +1,36 @@
-box: openjdk:13-jdk
+box: busybox
 
-build:
+build-base:
   steps:
-    - java/gradle:
-      task: build
-      cache_project_cache: true
+    - script:
+      name: support applications
+      code:
+        -
+          if [ $WERCKER_GIT_BRANCH != "master" ]; then echo "skipping support application deployments on branch=$WERCKER_GIT_BRANCH" && exit 0 ; fi
+
+          docker build -f ./.support/categories/Dockerfile -t api-categories ./.support/categories
+          docker build -f ./.support/coupons/Dockerfile -t api-coupons ./.support/coupons
+
+          docker login --email=_ --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+          docker tag api-categories registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
+          docker tag api-coupons registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
+
+          docker push registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
+          docker push registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
+
+          heroku ps:scale web=1 -a $HEROKU_CATEGORIES_APPLICATION
+          heroku ps:scale web=1 -a $HEROKU_COUPONS_APPLICATION
+
+#build:
+#  box: openjdk:13-jdk
+#  steps:
+#    - java/gradle:
+#      task: build
+#      cache_project_cache: true
+
+#deploy:
+#  box: nodesource/node:trusty
+#  steps:
+#    - script:
+#        name: testing deploy
+#        code: node --version
