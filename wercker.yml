@@ -17,8 +17,8 @@ build:
       code: |
         if [ $WERCKER_GIT_BRANCH != "master" ]; then echo "skipping support application deployments on branch=$WERCKER_GIT_BRANCH" && exit 0 ; fi
 
-        docker build -f ./.support/categories/Dockerfile -t api-categories ./.support/categories
-        docker build -f ./.support/coupons/Dockerfile -t api-coupons ./.support/coupons
+        docker build -f ./.support/categories/Dockerfile -t cs-api-categories ./.support/categories
+        docker build -f ./.support/coupons/Dockerfile -t cs-api-coupons ./.support/coupons
 
         curl https://cli-assets.heroku.com/install.sh | sh
 
