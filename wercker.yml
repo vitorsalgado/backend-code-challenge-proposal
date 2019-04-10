@@ -22,10 +22,10 @@ build:
 
         curl https://cli-assets.heroku.com/install.sh | sh
 
-        docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         docker tag api-categories registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
         docker tag api-coupons registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
 
+        docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         docker push registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
         docker push registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
 
