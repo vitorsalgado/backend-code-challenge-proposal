@@ -7,8 +7,8 @@ build:
     - script:
         name: setup
         code: |
-          sudo apt-get update && \
-            sudo apt-get install -y \
+          sudo apt-get update
+          sudo apt-get install -y \
             docker \
             curl
           sudo mkdir -p /etc/apt/sources.list.d
