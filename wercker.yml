@@ -17,8 +17,8 @@ build:
       code: |
         if [ $WERCKER_GIT_BRANCH != "master" ]; then echo "skipping support application deployments on branch=$WERCKER_GIT_BRANCH" && exit 0 ; fi
 
-        docker build -f ./.support/categories/Dockerfile -t $HEROKU_CATEGORIES_APPLICATION ./.support/categories
-        docker build -f ./.support/coupons/Dockerfile -t $HEROKU_COUPONS_APPLICATION ./.support/coupons
+        docker build -f ./.support/categories/Dockerfile -t $HEROKU_CATEGORIES_APPLICATION/web ./.support/categories
+        docker build -f ./.support/coupons/Dockerfile -t $HEROKU_COUPONS_APPLICATION/web ./.support/coupons
 
         curl https://cli-assets.heroku.com/install.sh | sh
 
