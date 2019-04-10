@@ -1,6 +1,6 @@
 box: busybox
 
-build-base:
+build:
   steps:
     - script:
       name: support applications
