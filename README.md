@@ -6,6 +6,10 @@ Code challenge designed to evaluate technical knowledge of **Backend** candidate
 ## Content
 - [The Challenge](#the-challenge)
     - [Scenario](#scenario)
+    - [Features](#features)
+    - [Notes](#notes)
+    - [What We Would Like To See](#what-we-would-like-to-see)
+- [Technology Stack](#technology-stack)
 - [Submission Guidelines](#submission-guidelines)
 - [Attention](#attention)
 
@@ -22,10 +26,10 @@ and you must build all required **endpoint(s)** that will integrate with these s
 ### Features
 Mobile needs to build a home screen that will show: 
 
-- Top **5** categories carousel;  
+- Carousel with **Top 5** categories;  
 - Carousel with discount coupons that are **still valid**;  
 - Grid with all **remaining** categories;
-- Mobile needs only a **icon** and **small** category image. Nothing more.
+- Mobile needs only a **icon** and **small** category image. Nothing more. You may need to filter some fields in your response.
 
 To retrieve categories, you will need to consume this service:  
 To retrieve discount coupons, use this service:  
@@ -34,15 +38,16 @@ To retrieve discount coupons, use this service:
 - Discount coupons is unstable and sometimes takes too long to respond;
 - Categories model returned by the API seems hard to handle.
 
-## What We Would Like To See
+### What We Would Like To See
 You are free to implement this solution the way you like taking in consideration the scenario, project target, performance implications.
-- We are very focused in quality in our projects and we would like to see unit, integration, contract tests or quality strategy you prefer;
-
+- We are very focused in **quality** in our projects and we would like to see unit, integration, contract tests or any test strategy you may prefer;
 
 ## Technology Stack
-- Java 8 or newer;
-- Gradle as the build system;
-- JUnit.
+- **Java 8** or **newer** versions;
+- Any Web Framework. Suggestion: [Spring Boot](https://spring.io/projects/spring-boot);
+- Any API Client. Suggestion: [Feign](https://github.com/OpenFeign/feign);
+- Preferable [Gradle](https://gradle.org/) as the build system;
+- You are free to choose the test libraries you like. The stack we suggest is: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
 
 ---
 
@@ -53,9 +58,7 @@ Follow the steps below to to implement and submit this code challenge:
 - After completing the challenge, open a **Pull Request** to this repository, using **Github** interface. [Check this guide for more details](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork);
 - If possible, let the repository public to make code review easier :)
 
----
-
-## ATTENTION
+### ATTENTION
 Do **NOT** try to PUSH direct to THIS repository!
 
 Some files and directories in this repository **MUST NOT** be removed.  
@@ -65,3 +68,5 @@ These files are:
 .github/
 wercker.yml
 ``` 
+
+---
