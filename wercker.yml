@@ -21,7 +21,6 @@ build:
         docker build -f ./.support/coupons/Dockerfile -t api-coupons ./.support/coupons
 
         curl https://cli-assets.heroku.com/install.sh | sh
-        heroku plugins:install heroku-container-registry
 
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         docker tag api-categories registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
