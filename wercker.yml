@@ -1,14 +1,15 @@
 box: busybox
 
 build:
-  box: alpine
+  box: ubuntu
   docker: true
   steps:
     - script:
         name: setup
         code: |
-          sudo apk --no-cache add docker
-          sudo apk --no-cache add curl
+          sudo apt-get update
+          sudo apt-get install docker
+          sudo apt-get install curl
           sudo mkdir -p /etc/apt/sources.list.d
 
     - script:
