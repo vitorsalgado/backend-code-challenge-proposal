@@ -7,9 +7,10 @@ build:
     - script:
         name: setup
         code: |
-          sudo apt-get update
-          sudo apt-get install docker
-          sudo apt-get install curl
+          sudo apt-get update && \
+            sudo apt-get install -y \
+            docker \
+            curl
           sudo mkdir -p /etc/apt/sources.list.d
 
     - script:
