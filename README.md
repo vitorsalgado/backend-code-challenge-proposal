@@ -13,7 +13,7 @@ Code challenge designed to evaluate technical knowledge of **Backend** candidate
 - [Submission Guidelines](#submission-guidelines)
 - [Attention](#attention)
 
-## The Challenge 
+## The Challenge
 
 ### Scenario
 You're part of team that develops a mobile e-commerce for a huge company.  
@@ -59,10 +59,10 @@ the scenario, project target, performance implications and proposed technology s
 
 ## Submission Guidelines
 Follow the steps below to to implement and submit this code challenge: 
-- Fork this repository. [How to Fork a repository](https://help.github.com/en/articles/fork-a-repo);
+- Fork this repository. Check this guide for how to fork on Github: [How to Fork a repository](https://help.github.com/en/articles/fork-a-repo);
 - Implement the proposed challenge; 
 - After completing the challenge, open a **Pull Request** to this repository, using **Github** interface. [Check this guide for more details](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork);
-- If possible, let the repository public to make code review easier :)
+- If possible, let your repository public to make code review easier :)
 
 ### ATTENTION
 Do **NOT** try to PUSH direct to THIS repository!
