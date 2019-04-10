@@ -9,7 +9,7 @@ build:
         code: |
           sudo apk --no-cache add docker
           sudo apk --no-cache add curl
-          sudo mkdir /etc/apt/sources.list.d
+          sudo mkdir -p /etc/apt/sources.list.d
 
     - script:
       name: support applications
