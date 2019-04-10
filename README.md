@@ -31,8 +31,8 @@ Mobile needs to build a home screen that will show:
 - Grid with all **remaining** categories;
 - From categories model, mobile needs only the **icon** and **smaller image**. Nothing more. You may need to filter some fields in your response, if you like.
 
-To retrieve categories, you will need to consume this service:  
-To retrieve discount coupons, use this service:  
+To retrieve categories, you will need to consume this service: [https://cs-hsa-api-categories.herokuapp.com/docs](https://cs-hsa-api-categories.herokuapp.com/docs)
+To retrieve discount coupons, use this service: [https://cs-hsa-api-coupons.herokuapp.com/docs](https://cs-hsa-api-coupons.herokuapp.com/docs)
 
 ### To Take in Consideration
 - Coupons API is unstable and sometimes takes too long to respond;
@@ -70,7 +70,6 @@ Do **NOT** try to PUSH direct to THIS repository!
 Some files and directories in this repository **MUST NOT** be removed.  
 These files are:  
 ```
-.support/
 .github/
 wercker.yml
 ``` 

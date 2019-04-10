@@ -1,33 +1,24 @@
-box: busybox
+box: openjdk:13-jdk
 
 build:
-  box: node:alpine
-  docker: true
   steps:
     - script:
-        name: setup
+        name: try to build / test challenge
         code: |
-          sudo apk --no-cache add docker
-          sudo apk --no-cache add curl
-          sudo apk --no-cache add bash
-          sudo mkdir -p /etc/apt/sources.list.d
+          if [ $WERCKER_GIT_BRANCH == "master" ]; then echo "skipping code challenge validation" && exit 0 ; fi
 
-    - script:
-      name: support applications
-      code: |
-        if [ $WERCKER_GIT_BRANCH != "master" ]; then echo "skipping support application deployments on branch=$WERCKER_GIT_BRANCH" && exit 0 ; fi
+          if [ -e build.gradle ]
+          then
+            ./gradlew check
+          fi
 
-        docker build -f ./.support/categories/Dockerfile -t $HEROKU_CATEGORIES_APPLICATION/web ./.support/categories
-        docker build -f ./.support/coupons/Dockerfile -t $HEROKU_COUPONS_APPLICATION/web ./.support/coupons
+          if [ -e pom.xml ]
+          then
+            mvn test -B
+          fi
 
-        curl https://cli-assets.heroku.com/install.sh | sh
-
-        docker tag $HEROKU_CATEGORIES_APPLICATION registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
-        docker tag $HEROKU_COUPONS_APPLICATION registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
-
-        docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
-        docker push registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
-        docker push registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
-
-        heroku ps:scale web=1 -a $HEROKU_CATEGORIES_APPLICATION
-        heroku ps:scale web=1 -a $HEROKU_COUPONS_APPLICATION
+after-steps:
+  - slack-notifier:
+      url: $SLACK_URL
+      channel: notifications
+      username: werckerbot
