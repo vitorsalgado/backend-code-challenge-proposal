@@ -1,16 +1,14 @@
 box: busybox
 
 build:
-  box: ubuntu
+  box: alpine
   docker: true
   steps:
     - script:
         name: setup
         code: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            docker \
-            curl
+          sudo apk --no-cache add docker
+          sudo apk --no-cache add curl
           sudo mkdir -p /etc/apt/sources.list.d
 
     - script:
@@ -21,7 +19,7 @@ build:
         docker build -f ./.support/categories/Dockerfile -t api-categories ./.support/categories
         docker build -f ./.support/coupons/Dockerfile -t api-coupons ./.support/coupons
 
-        wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+        curl https://cli-assets.heroku.com/install.sh | sh
         heroku plugins:install heroku-container-registry
 
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
