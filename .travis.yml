@@ -13,15 +13,15 @@ jobs:
       script:
         # building support applications image
 
-        - docker build -f ./.support/categories/Dockerfile -t cs-api-categories ./.support/categories
-        - docker build -f ./.support/coupons/Dockerfile -t cs-api-coupons ./.support/coupons
+        - docker build -f ./.support/categories/Dockerfile -t $HEROKU_CATEGORIES_APPLICATION ./.support/categories
+        - docker build -f ./.support/coupons/Dockerfile -t $HEROKU_COUPONS_APPLICATION ./.support/coupons
 
         # deploying to Heroku cloud
 
         - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-        - docker tag api-categories registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
-        - docker tag api-coupons registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
+        - docker tag $HEROKU_CATEGORIES_APPLICATION registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
+        - docker tag $HEROKU_COUPONS_APPLICATION registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
 
         - docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         - docker push registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web

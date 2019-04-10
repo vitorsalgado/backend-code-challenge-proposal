@@ -17,13 +17,13 @@ build:
       code: |
         if [ $WERCKER_GIT_BRANCH != "master" ]; then echo "skipping support application deployments on branch=$WERCKER_GIT_BRANCH" && exit 0 ; fi
 
-        docker build -f ./.support/categories/Dockerfile -t cs-api-categories ./.support/categories
-        docker build -f ./.support/coupons/Dockerfile -t cs-api-coupons ./.support/coupons
+        docker build -f ./.support/categories/Dockerfile -t $HEROKU_CATEGORIES_APPLICATION ./.support/categories
+        docker build -f ./.support/coupons/Dockerfile -t $HEROKU_COUPONS_APPLICATION ./.support/coupons
 
         curl https://cli-assets.heroku.com/install.sh | sh
 
-        docker tag api-categories registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
-        docker tag api-coupons registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
+        docker tag $HEROKU_CATEGORIES_APPLICATION registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
+        docker tag $HEROKU_COUPONS_APPLICATION registry.heroku.com/$HEROKU_COUPONS_APPLICATION/web
 
         docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         docker push registry.heroku.com/$HEROKU_CATEGORIES_APPLICATION/web
@@ -31,17 +31,3 @@ build:
 
         heroku ps:scale web=1 -a $HEROKU_CATEGORIES_APPLICATION
         heroku ps:scale web=1 -a $HEROKU_COUPONS_APPLICATION
-
-#build:
-#  box: openjdk:13-jdk
-#  steps:
-#    - java/gradle:
-#      task: build
-#      cache_project_cache: true
-
-#deploy:
-#  box: nodesource/node:trusty
-#  steps:
-#    - script:
-#        name: testing deploy
-#        code: node --version
