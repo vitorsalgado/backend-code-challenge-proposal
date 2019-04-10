@@ -18,8 +18,7 @@ jobs:
     - stage: validation
       name: Code Challenge Validation
       if: type = pull_request AND fork = true
-      script:
-        - |
+      script: >-
           if [ -e build.gradle ]
           then
             ./gradlew check
