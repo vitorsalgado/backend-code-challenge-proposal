@@ -19,8 +19,6 @@ jobs:
       name: Code Challenge Validation
       if: type = pull_request AND fork = true
       script: |
-        if [ $WERCKER_GIT_BRANCH == "master" ]; then echo "skipping code challenge validation" && exit 0 ; fi
-
         if [ -e build.gradle ]
         then
           ./gradlew check
