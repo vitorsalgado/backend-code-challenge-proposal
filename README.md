@@ -1,5 +1,5 @@
 # Backend Code Challenge
-[![wercker status](https://app.wercker.com/status/7814c1049ce21e11512a7c1db725e6d9/s/master "wercker status")](https://app.wercker.com/project/byKey/7814c1049ce21e11512a7c1db725e6d9)  
+[![Build Status](https://travis-ci.org/vitorsalgado/backend-code-challenge-proposal.svg?branch=master)](https://travis-ci.org/vitorsalgado/backend-code-challenge-proposal)  
 
 Code challenge designed to evaluate technical knowledge of **Backend** candidates.  
 
