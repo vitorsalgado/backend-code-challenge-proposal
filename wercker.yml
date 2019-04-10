@@ -1,6 +1,7 @@
 box: busybox
 
 build:
+  box: alpine
   docker: true
   steps:
     - script:
