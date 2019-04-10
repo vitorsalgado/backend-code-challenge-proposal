@@ -7,9 +7,9 @@ Code challenge designed to evaluate technical knowledge of **Backend** candidate
 - [The Challenge](#the-challenge)
     - [Scenario](#scenario)
     - [Features](#features)
-    - [Notes](#notes)
-    - [What We Would Like To See](#what-we-would-like-to-see)
-- [Technology Stack](#technology-stack)
+    - [Notes](#to-take-in-consideration)
+- [What We Would Like To See](#what-we-would-like-to-see)
+    - [Technology Stack](#technology-stack)
 - [Submission Guidelines](#submission-guidelines)
 - [Attention](#attention)
 
@@ -27,22 +27,28 @@ and you must build all required **endpoint(s)** that will integrate with these s
 Mobile needs to build a home screen that will show: 
 
 - Carousel with **Top 5** categories;  
-- Carousel with discount coupons that are **still valid**;  
+- Carousel with coupons that the expiration date is still valid;  
 - Grid with all **remaining** categories;
-- Mobile needs only a **icon** and **small** category image. Nothing more. You may need to filter some fields in your response.
+- From categories model, mobile needs only the **icon** and **smaller image**. Nothing more. You may need to filter some fields in your response, if you like.
 
 To retrieve categories, you will need to consume this service:  
 To retrieve discount coupons, use this service:  
 
-### Notes
-- Discount coupons is unstable and sometimes takes too long to respond;
-- Categories model returned by the API seems hard to handle.
+### To Take in Consideration
+- Coupons API is unstable and sometimes takes too long to respond;
+- Categories API returns a model that seems hard to handle. 
 
-### What We Would Like To See
-You are free to implement this solution the way you like taking in consideration the scenario, project target, performance implications.
-- We are very focused in **quality** in our projects and we would like to see unit, integration, contract tests or any test strategy you may prefer;
+## What We Would Like To See
+You are free to implement this solution the way you like taking in consideration only 
+the scenario, project target, performance implications and proposed technology stack described below.
+- We are very focused in **quality** in our projects and we would like to a test strategy applied. You can use test type like, for example **Unit Tests**;
+- The services are unstable and you don't want the user experience degrade because an API takes too long to respond;
+- 1 week to complete the challenge. If you need more time, no problem, talk to us and we will see what you can do :)
+- An API documentation would be good. Suggestion: [Swagger](https://swagger.io/); 
+- API running in some cloud solution, like **Heroku**, **AWS**;
+- Running with [Docker](https://www.docker.com/).
 
-## Technology Stack
+### Technology Stack
 - **Java 8** or **newer** versions;
 - Any Web Framework. Suggestion: [Spring Boot](https://spring.io/projects/spring-boot);
 - Any API Client. Suggestion: [Feign](https://github.com/OpenFeign/feign);
