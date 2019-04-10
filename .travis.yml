@@ -18,16 +18,9 @@ jobs:
     - stage: validation
       name: Code Challenge Validation
       if: type = pull_request AND fork = true
-      script: >-
-          if [ -e build.gradle ]
-          then
-            ./gradlew check
-          fi
-
-          if [ -e pom.xml ]
-          then
-            mvn test -B
-          fi
+      script:
+          - if [ -e build.gradle ]; then ./gradlew check ; fi
+          - if [ -e pom.xml ]; then mvn test -B ; fi
       notifications:
         slack: vtrsalgado:J4NygsuDQPf4qkIxn2sCG7h3
           on_success: change
