@@ -1,5 +1,4 @@
-# Backend Code Challenge
-[![Build Status](https://travis-ci.org/vitorsalgado/backend-code-challenge-proposal.svg?branch=master)](https://travis-ci.org/vitorsalgado/backend-code-challenge-proposal)  
+# Backend Code Challenge [![Build Status](https://travis-ci.org/vitorsalgado/backend-code-challenge-proposal.svg?branch=master)](https://travis-ci.org/vitorsalgado/backend-code-challenge-proposal)  
 
 Code challenge designed to evaluate technical knowledge of **Backend** candidates.  
 
@@ -31,19 +30,22 @@ Mobile needs to build a home screen that will show:
 - Grid with all **remaining** categories;
 - From categories model, mobile needs only the **icon** and **smaller image**. Nothing more. You may need to filter some fields in your response, if you like.
 
-To retrieve categories, you will need to consume this service: [https://cs-hsa-api-categories.herokuapp.com/docs](https://cs-hsa-api-categories.herokuapp.com/docs)
-To retrieve discount coupons, use this service: [https://cs-hsa-api-coupons.herokuapp.com/docs](https://cs-hsa-api-coupons.herokuapp.com/docs)
+### APIs
+To retrieve **categories**, you will need to consume this service: [https://cs-hsa-api-categories.herokuapp.com/docs](https://cs-hsa-api-categories.herokuapp.com/docs).  
+To retrieve discount **coupons**, use this service: [https://cs-hsa-api-coupons.herokuapp.com/docs](https://cs-hsa-api-coupons.herokuapp.com/docs)
 
 ### To Take in Consideration
-- Coupons API is unstable and sometimes takes too long to respond;
+- Coupons API is **unstable** and sometimes takes too long to respond;
 - Categories API returns a model that seems hard to handle. 
 
 ## What We Would Like To See
 You are free to implement this solution the way you like taking in consideration only 
 the scenario, project target, performance implications and proposed technology stack described below.
 - We are very focused in **quality** in our projects and we would like to a test strategy applied. You can use test type like, for example **Unit Tests**;
-- The services are unstable and you don't want the user experience degrade because an API takes too long to respond;
-- 1 week to complete the challenge. If you need more time, no problem, talk to us and we will see what you can do :)
+- The services are unstable and we don't want the user experience degrading because an API takes too long to respond;
+- **1 week to complete the challenge**. If you need more time, no problem, talk to us and we will see what you can do :)
+
+### Nice To Have
 - An API documentation would be good. Suggestion: [Swagger](https://swagger.io/); 
 - API running in some cloud solution, like **Heroku**, **AWS**;
 - Running with [Docker](https://www.docker.com/).
@@ -53,7 +55,7 @@ the scenario, project target, performance implications and proposed technology s
 - Any Web Framework. Suggestion: [Spring Boot](https://spring.io/projects/spring-boot);
 - Any API Client. Suggestion: [Feign](https://github.com/OpenFeign/feign);
 - Preferable [Gradle](https://gradle.org/) as the build system;
-- You are free to choose the test libraries you like. The stack we suggest is: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
+- You are free to choose the test libraries and frameworks you like. The stack we suggest is: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
 
 ---
 
@@ -66,12 +68,5 @@ Follow the steps below to to implement and submit this code challenge:
 
 ### ATTENTION
 Do **NOT** try to PUSH direct to THIS repository!
-
-Some files and directories in this repository **MUST NOT** be removed.  
-These files are:  
-```
-.github/
-wercker.yml
-``` 
 
 ---
