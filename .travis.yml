@@ -1,17 +1,22 @@
 language: java
 
 jdk:
-  - oraclejdk11
+- oraclejdk11
 
 jobs:
   include:
-    - stage: validation
-      name: "Code Challenge Validation"
-      if: type = pull_request AND fork = true
-      script:
-        - if [ -e build.gradle ]; then ./gradlew check ; fi
-        - if [ -e pom.xml ]; then mvn test -B ; fi
+  - stage: validation
+    name: Code Challenge Validation
+    if: type = pull_request AND fork = true
+    script:
+    - if [ -e build.gradle ]; then ./gradlew check ; fi
+    - if [ -e pom.xml ]; then mvn test -B ; fi
 
 notifications:
-  slack: vtrsalgado:J4NygsuDQPf4qkIxn2sCG7h3#general
+  email: false
+  slack:
     on_pull_requests: true
+    on_failure: always
+    on_success: change
+    rooms:
+    - secure: fHAbt7MlYpofLRxrV2lWhThPyk3+3lAa4qJ6GxpytndzeM6RZiVZo5yhZJyAgEMifdy0e6863cqlM7YNKHjGlfujzvIfG2keo93d7AoVejqJRjdPdS8L7krL031pCZ+fbA31jmVGr0+y246VPwi8suShWup9vWcC+HqlEFRiemAoij2jBG5AvsPElCB3jiILWmZRnpvIxgIzr7JaDBSxY9fWOOQihhR+os2el0EddVAY+A3ORxc9zACBrHhAo7iDXNErpKrZ1/avL3qjBw2tEQx7LeOxHockOuZNi6sED5xNtcoNsVmAT3RBblUDiDZlvtczfcJmXhlO/aGJWtMrmWozwxU/F42SMYlxhguMRbSzpWoC0SIEvThO8HjQek9GaXti8EX5NY/Dm+b+2njwTi5NPXzUp+c9b9yDrc+lQvS0QB4Gke13cPED5CNCIj3dAHYhGRUttrb328Q0QdpskTd8sDvR/Ptqna0BLQXq5mcldyHFl1zF3+r4227LJ2WEx+cSLUiWfXHuzqqcyiWMYX8LIi8YpXFYcZ2/HqaYLhizdrj6jIrgPv1TnjjEeqMrwc8DWHNbrGQaTH3R8ZQNDVrayYVBImBjHyZ9m/s2hb60TO/WwPKu6TFmB7GQXiLHj7C4vJoQ05ZWR/VCy+/4v9jH239d4C5joweo4rbE5pc=
