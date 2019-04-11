@@ -13,6 +13,5 @@ jobs:
         - if [ -e pom.xml ]; then mvn test -B ; fi
 
 notifications:
-  slack: vtrsalgado:J4NygsuDQPf4qkIxn2sCG7h3
-    on_success: change
-    on_failure: always
+  slack: vtrsalgado:J4NygsuDQPf4qkIxn2sCG7h3#general
+    on_pull_requests: true
