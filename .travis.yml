@@ -1,19 +1,12 @@
 language: java
 
-jdk: oraclejdk11
-
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+jdk:
+  - oraclejdk11
 
 jobs:
   include:
     - stage: validation
-      name: Code Challenge Validation
+      name: "Code Challenge Validation"
       if: type = pull_request AND fork = true
       script:
         - if [ -e build.gradle ]; then ./gradlew check ; fi
