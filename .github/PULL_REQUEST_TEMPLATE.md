@@ -10,9 +10,3 @@ Put an ```x``` in the boxes that apply.
 
 ## Comments
 *Place here any comments or suggestions you may have*
-
----
-title: 'Challenge @author'
-labels: "need review"
-assignees: @vitorsalgado
----
